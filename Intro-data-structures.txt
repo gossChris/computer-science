@@ -1,0 +1,58 @@
+a) Use an array input: ["Vivian", "Ava", "Josh", "Patrick", "Mike"]
+
+var amusementLine = ["Vivian", "Ava", "Josh", "Patrick", "Mike"]
+
+
+b) Insert a new person, "Mary" at the end of the line. In other words, you should insert Mary after Mike.
+
+function newPerson(name) {
+  amusementLine.push(name);
+}
+
+c) Find a person in line named "Josh." This function should return the position of 2 in the array, (recall that arrays are 0-based).
+
+
+function findPersonsNumber(name) {
+  return amusementLine.indexOf(name);
+}
+
+d) Find a person in line named "Emily." What should your function return if it does not find the item in the array?
+
+function findPerson(name) {
+  for(var i = 0; i <amusementLine.length; i++) {
+    if(name == amusementLine[i]) {
+      return name + " is in line"
+    }
+  }
+  return name + " is not in line" 
+}
+
+
+e) What if Ava wants to allow a friend, "Melissa", to cut in line in front of her? How would you code this so Melissa appears before Ava?
+
+function cutPerson(person, cutter) {
+  for(var i = 0; i <amusementLine.length; i++) {
+    if(person == amusementLine[i]) {
+      return amusementLine.splice(amusementLine.indexOf(person),0,cutter)
+    }
+  }
+     return person + " is not in line."
+}
+
+
+f) If Patrick wants to leave the line, how would you delete him from the array?
+
+function removePerson(name) {
+      var lineNumber = amusementLine.indexOf(name)
+      if (lineNumber > -1) {
+        amusementLine.splice(lineNumber, 1)
+      }
+}
+
+
+Provide another real-world example that you can model using a data structure.
+
+An Employee Data Strucutre which would hold employee names, employee numbers, times employees were late, and time at company.
+
+How would your data structure allow developers to access and manipulate the data? It would allow developers to add, edit, and delete employees. It will also allow devlopers to pull how long someone has worked with the company, and how many times they've been late.
+
