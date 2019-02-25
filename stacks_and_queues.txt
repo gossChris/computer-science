@@ -1,0 +1,95 @@
+1. What is the main difference between a stack and a queue?
+
+Stacks arrange elements in LIFO and queues arrange elements in FIFO
+
+2. What are the similarities between stacks and queues?
+
+They're both structures that enable engineers to rank tasks, create an order of operations, and support system functions.
+
+3. Imagine you are an engineer tasked with implementing the UNDO and REDO options in a word processor such as Microsoft Word. Which data structure would you use for each option and why?
+
+For the UNDO, I would use the LIFO because we want to last element typed to be removed and a LIFO structure would best fit. For REDO, I would use FIFO since we want the the first element to be queed to appear first.
+
+4. Given a string, reverse it using a stack. For example, the string "Bloc!" should be converted to "!colB".
+
+FUNCTION REVERSE(string)
+  INIT a new stack
+  FOR each character in string
+    CALL stack.push WITH character
+  END FOR
+  INIT reversed to empty string
+  WHILE stack is not empty
+    CALL stack.pop RETURNING character
+    APPEND character to reversed
+  END WHILE
+  RETURN reversed
+END FUNCTION
+
+
+function reverse(string) {
+  let stack = []
+  for(var i = 0; i < string.length; i++) {
+    stack.push(string[i]);
+  } 
+  let reversed = "";
+  while(stack.length !== 0) {
+    let removed += stack.pop()
+  }
+  return reversed;
+}
+
+5. Implement the pop method of a stack using one queue.
+
+
+6. Implement the enqueue and dequeue methods defined in the checkpoint inside your own Queue class.
+
+CLASS Queue
+  INIT storage[]
+
+  FUNCTION enqueue
+    APPEND element to the end of list
+  END FUNCTION
+
+  FUNCTION dequeue
+    set remove to the first element
+    REMOVE FIRST element of list from list
+    RETURN removed
+  END FUNCTION
+
+  FUNCTION pop
+    
+END CLASS
+
+
+class Queue {
+  constructor() {
+    this.job = []
+
+  }
+  
+  enqueue(element) {
+    this.job.push(element)
+   
+  }
+  
+  dequeue() {
+    return this.job.shift()
+  }
+
+  pop() {
+   let jobList = this.job.length;
+   let tasks = [];
+   let newFirst;
+   for(let i = 0; i < jobList; i++){
+     newFirst = this.dequeue();
+     if(i<(jobList-1)){
+       tasks.push(newFirst);
+     }
+   }
+   this.line = tasks;
+   return newFirst;
+ }
+
+}
+
+ 
