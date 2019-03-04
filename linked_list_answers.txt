@@ -1,0 +1,109 @@
+1. What are some pros and cons of using linked lists instead of arrays?
+
+the pros of linked list is that the list never contains empty place holders. Also each node is independent in memory, which allows link list to easily grow to immense sizes if need be. 
+
+The con is that since each node can exist anywhere in physical memory, it can be inefficient to accesss an element in the list.
+
+
+2. Come up with a real world example of a linked list
+
+I would say a train. They are linked in a specific order since there is a the head of the train and there is a caboose.
+
+
+The linked list push function should take a value, create a node, and add it to the end of a list. Below is pseudocode for a push function for a singly linked list. However, there is something wrong with it. Submit both an explanation of the bug and a functional implementation of the method.
+
+The bugs in this code is that we are not INIT a variable to hold store our current node,  we do not have a while loop that looks takes current and put its at the end of the list and we are not incrementing the size of the linked list.
+
+FUNCTION push(element)
+  CREATE NODE
+  INIT currrent
+  IF head node does NOT exist
+    SET head to node
+  ELSE
+    SET current to node
+    WHILE current.next is empty
+      set current to current.nxt
+    END WHILE
+  SET current.next to node
+  END IF
+ INCREMENT size plus one
+END FUNCTION
+
+function push(element){
+  let node = new Node(element)
+  let current;
+  
+  if(this.head == null) {
+    this.head = node;
+  } else {
+    current = this.head;
+    while(current.next) {
+      current = current.next;
+    }
+   current.next = node
+  }
+  this.size++;
+}
+
+
+
+Given an unsorted singly linked list, remove all duplicates from the linked list.
+Example
+Input: a -> c -> d -> d -> a
+Output: a -> c -> d
+
+
+FUNCTION deleteDuplicates(head)
+  SET current to head
+  WHILE reading current and current.next
+    IF current.data equals current.next.data
+      SET current.next to current.next.next
+    ELSE SET current to current.next
+    END IF
+  END WHILE
+ return head
+END FUNCTION
+
+function deleteDuplicate(head){
+  let current = head;
+  while(current && current.next){
+    if(current.data == current.next.data){
+      current.next = current.next.next
+    } else {
+      current = current.next;
+    }
+  }
+  return head;
+}
+
+
+
+Given an unsorted singly linked list, reverse it.
+Example
+Input: a -> b -> c -> d
+Output: d -> c -> b -> a
+
+FUNCTION reverseList(head)
+SET node to head
+INIT previous
+INIT temp
+  WHILE reading node
+    SET temp to node.next
+    SET node.next to previous
+    SET node to temp
+  END WHILE
+return prevous
+END FUNCTION
+
+function reverseList(head){
+  let node = head;
+  let previous;
+  let temp;
+  while(node){
+    temp = node.next;
+    node.next = previous
+    previous = node;
+    node = temp;
+  }
+ return previous;
+}
