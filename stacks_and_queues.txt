@@ -8,7 +8,7 @@ They're both structures that enable engineers to rank tasks, create an order of 
 
 3. Imagine you are an engineer tasked with implementing the UNDO and REDO options in a word processor such as Microsoft Word. Which data structure would you use for each option and why?
 
-For the UNDO, I would use the LIFO because we want to last element typed to be removed and a LIFO structure would best fit. For REDO, I would use FIFO since we want the the first element to be queed to appear first.
+For the UNDO and REDO, I would use stack structure becuase it is LIFO. This is because we want to last element typed to be removed (pop) and we want the last letter to be added (push) and a Stack Structure allows that.
 
 4. Given a string, reverse it using a stack. For example, the string "Bloc!" should be converted to "!colB".
 
